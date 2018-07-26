@@ -28,6 +28,7 @@ public class Main {
         System.out.println("2 - rodyti aparato busena");
         System.out.println("3 - plauti aparata");
         System.out.println("4 - pildyti produktus");
+        System.out.println("5- Issaugoti aparato busena");
     }
 
     private void dirbam() {
@@ -62,6 +63,9 @@ public class Main {
                     System.out.println("Ivesite kiek pildome pupeliu(g)");
                     float beans = sc.nextFloat();
                     aparatas.fillProducts(water,sugar,beans);
+                    break;
+                case 5:
+                    aparatas.saveStatus();
                     break;
 
             }
