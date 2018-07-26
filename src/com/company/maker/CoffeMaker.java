@@ -1,5 +1,8 @@
 package com.company.maker;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class CoffeMaker {
 
 
@@ -173,6 +176,38 @@ public class CoffeMaker {
 
     public void setSugar(float value) {
         this.sugarAmount = value;
+    }
+    public void saveStatus(){
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("Status.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            writer.write("=========Maker status============\n");
+            writer.write("Usages left:" + (MAX_USES - this.useCount) + "\n");
+            writer.write("is machine ready:" + isReady() + "\n");
+            writer.write("=========Product status=========" + "\n");
+            writer.write("Sugar amount left:" + sugarAmount + "\n");
+            writer.write("Water amount left:" + waterAmount + "\n");
+            writer.write("Beans amount left:" + beansAmount + "\n");
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
